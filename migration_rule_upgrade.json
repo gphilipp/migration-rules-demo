@@ -1,0 +1,15 @@
+{
+  "ruleSet": {
+    "migrationRules": [
+      {
+        "name": "move_start_and_end_date_to_validity_period",
+        "kind": "TRANSFORM",
+        "type": "JSONATA",
+        "mode": "UPGRADE",
+        "expr": "$merge([$sift($, function($v, $k) {$k != 'start_date' and $k != 'end_date'}), {'validity_period': {'from':start_date,'to':end_date}}])"
+      }
+    ]
+  }
+}
+
+
